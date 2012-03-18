@@ -3,6 +3,7 @@
 ## v0.2.pre
 
 * `managed_template` - allows a recipe's files to have `keep.xyz` ("keep files") support
+* `node[:owner_name]` & `node[:owner_pass]` attributes
 
 ## v0.1
 
