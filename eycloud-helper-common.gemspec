@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # s.add_dependency("eycloud-helper-cronjobs")
+  s.add_dependency("chef")
+  s.add_dependency("yajl-ruby")
   s.add_development_dependency("rake")
 end
