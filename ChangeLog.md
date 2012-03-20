@@ -1,9 +1,10 @@
 # ChangeLog
 
-## v0.2.pre
+## v0.2
 
 * `managed_template` - allows a recipe's files to have `keep.xyz` ("keep files") support
 * `node[:owner_name]` & `node[:owner_pass]` attributes
+* `chef` + `yajl-ruby` dependencies for use by "ey-recipes init --chef --on-deploy"
 
 ## v0.1
 
