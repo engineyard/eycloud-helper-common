@@ -1,8 +1,11 @@
 # Common recipe for EY Cloud
 
-DESCRIPTION HERE
+* `update_file` - create, append or truncate a file
 
-`ruby_block` is provided for recipes wanting to run on Chef 0.6 as well as modern Chef.
+
+Now in Chef 0.10 but provided for Chef 0.6 support:
+
+* `ruby_block`
 
 ## Installation
 
