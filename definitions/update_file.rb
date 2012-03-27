@@ -47,8 +47,6 @@ define :update_file, :action => :append do
     only_if params[:only_if] if params[:only_if]
   end
 
-  params[:action] = :replace if params[:where]
-  
   case params[:action].to_sym
   when :append, :rewrite
 
@@ -63,8 +61,16 @@ define :update_file, :action => :append do
 
     ruby_block do
       content = File.binread(params[:path])
-      content.gsub!(params[:where], params[:body])
-      File.open(path, 'wb') { |file| file.write(content) }
+      if content =~ params[:where]
+        content.gsub!(params[:where], params[:body])
+        File.open(path, 'wb') { |file| file.write(content) }
+      else
+        mode = '>>' # append
+        execute "echo '#{params[:body]}' #{mode} #{filepath}" do
+          not_if params[:not_if] if params[:not_if]
+          only_if params[:only_if] if params[:only_if]
+        end
+      end
     end
 
   when :truncate
